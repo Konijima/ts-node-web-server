@@ -9,6 +9,7 @@ const cors = require('cors')
 const compression = require('compression')
 
 // Routers
+import AuthRouter from '@App/Routers/AuthRouter'
 import FileTransferRouter from '@App/Routers/FileTransferRouter'
 import StaticRouter from '@App/Routers/StaticRouter'
 import WebRouter from '@App/Routers/WebRouter'
@@ -34,6 +35,7 @@ class Application {
         this.expressApp.use(compression())
 
         // Add Routers
+        this.expressApp.use(AuthRouter)
         this.expressApp.use(FileTransferRouter)
         this.expressApp.use(StaticRouter)
         this.expressApp.use(WebRouter)
