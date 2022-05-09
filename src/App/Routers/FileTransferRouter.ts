@@ -1,4 +1,3 @@
-import { resolve } from 'path'
 import express, { Router, Request, Response } from 'express'
 
 const FileTransferRouter = Router()
