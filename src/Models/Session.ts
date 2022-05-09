@@ -2,6 +2,7 @@ import { Schema, Model, model, Types } from 'mongoose'
 import { sign, verify } from 'jsonwebtoken'
 import { ExtendedDocument } from '@Database/Plugins/ExtendedSchema'
 import { IUserDocument } from '@Models/User'
+import { SocketSession } from '@App/SocketSession'
 
 // Properties Interface
 interface ISession {
@@ -81,6 +82,11 @@ SessionSchema.pre('save', function(next) {
 })
 
 // EVENTS
+
+SessionSchema.on('OnDeleted', function (session: ISessionDocument) {
+    const socketSessions = SocketSession.getSocketSessionsFromSessionId(session._id)
+    socketSessions.forEach(socketSession => socketSession.ForceDisconnect())
+})
 
 // METHODS
 
