@@ -46,6 +46,13 @@ class Application {
                 AppLogger.log(`Application running at http://${process.env.HOST}:${process.env.PORT}`)
             })
         )
+
+        // Handle process exit
+        process.on('SIGINT', async () => await this.handleProcessExit())
+    }
+
+    private async handleProcessExit() {
+        console.log('Application is closing...')
     }
 
 }
