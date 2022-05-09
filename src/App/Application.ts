@@ -4,14 +4,14 @@ import IO from 'socket.io'
 import Database from '@Database/Database'
 import { AppLogger } from '@App/Logger'
 
+// Middlewares
+const cors = require('cors')
+const compression = require('compression')
+
 // Routers
 import FileTransferRouter from '@App/Routers/FileTransferRouter'
 import StaticRouter from '@App/Routers/StaticRouter'
 import WebRouter from '@App/Routers/WebRouter'
-
-// Middlewares
-const cors = require('cors')
-const compression = require('compression')
 
 class Application {
 
