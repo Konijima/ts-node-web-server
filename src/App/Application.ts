@@ -6,6 +6,7 @@ import { AppLogger } from '@App/Logger'
 
 // Middlewares
 const cors = require('cors')
+const bodyParser = require('body-parser')
 const compression = require('compression')
 
 // Routers
@@ -35,6 +36,7 @@ class Application {
 
         // Add Middlewares
         this.expressApp.use(cors())
+        this.expressApp.use(bodyParser())
         this.expressApp.use(compression())
 
         // Add Routers
