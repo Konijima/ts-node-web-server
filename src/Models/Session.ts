@@ -98,14 +98,17 @@ SessionSchema.method('updateExpiration', async function (this: ISessionDocument)
 SessionSchema.method('checkValidity', async function (this: ISessionDocument) {
     const expiration = Number(this.updatedDate) + (Number(process.env.SESSION_EXPIRATION) * 1000)
 
-    if (Date.now() > expiration) {
-        await this.delete()
-        throw new Error('session_expired')
-    }
+    let invalidReason: string
 
-    if (!verify(this.token, process.env.JWT_KEY)) {
+    if (Date.now() > expiration)
+        invalidReason = 'session_expired'
+
+    else if (!verify(this.token, process.env.JWT_KEY))
+        invalidReason = 'invalid_token'
+
+    if (invalidReason) {
         await this.delete()
-        throw new Error('invalid_token')
+        throw new Error(invalidReason)
     }
 })
 
