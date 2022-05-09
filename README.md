@@ -76,7 +76,7 @@ nano /etc/nginx/sites-enabled/ts-node-web-server.conf
 # Test the config for errors
 sudo nginx -t
 
-# Restart restart nginx
+# Restart nginx
 sudo systemctl restart nginx
 ```
 
