@@ -14,6 +14,9 @@ import FileTransferRouter from '@App/Routers/FileTransferRouter'
 import StaticRouter from '@App/Routers/StaticRouter'
 import WebRouter from '@App/Routers/WebRouter'
 
+// Sockets
+import { SocketSession } from './SocketSession'
+
 class Application {
 
     public get ExpressApp() { return this.expressApp }
@@ -39,6 +42,9 @@ class Application {
         this.expressApp.use(FileTransferRouter)
         this.expressApp.use(StaticRouter)
         this.expressApp.use(WebRouter)
+
+        // Create socket session on connection
+        this.socketServer.on('connection', (socket) => new SocketSession(socket))
 
         // Connect to MongoDB then start the web server
         Database.Connect().then(() => 
