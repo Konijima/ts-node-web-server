@@ -5,8 +5,8 @@ import Database from '@Database/Database'
 import { AppLogger } from '@App/Logger'
 
 // Routers
-import StaticRouter from '@Routers/StaticRouter'
-import WebRouter from '@Routers/WebRouter'
+import StaticRouter from '@App/Routers/StaticRouter'
+import WebRouter from '@App/Routers/WebRouter'
 
 // Middlewares
 const cors = require('cors')

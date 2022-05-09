@@ -43,7 +43,6 @@
   "_moduleAliases": {
     "@App": "dist/App",
     "@Database": "dist/Database",
-    "@Models": "dist/Models",
-    "@Routers": "dist/Routers"
+    "@Models": "dist/Models"
   }
 }

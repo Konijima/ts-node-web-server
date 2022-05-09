@@ -12,8 +12,7 @@
       "*": [ "node_modules/*" ],
       "@App/*": [ "App/*" ],
       "@Database/*": [ "Database/*" ],
-      "@Models/*": [ "Models/*" ],
-      "@Routers/*": [ "Routers/*" ]
+      "@Models/*": [ "Models/*" ]
     }
   },
   "include": [
