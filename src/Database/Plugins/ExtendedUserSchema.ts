@@ -16,8 +16,8 @@ function ExtendedUserSchemaPlugin(schema: Schema, options: any) {
         next()
     })
 
-    schema.post('save', function(doc: ExtendedUserDocument) {
-        if (doc.wasPasswordChanged) schema.emit('OnPasswordChange', doc)
+    schema.post('save', function(user: ExtendedUserDocument) {
+        if (user.wasPasswordChanged) schema.emit('OnPasswordChanged', user)
     })
 
 }
