@@ -36,7 +36,8 @@ class Application {
 
         // Add Middlewares
         this.expressApp.use(cors())
-        this.expressApp.use(bodyParser())
+        this.expressApp.use(bodyParser.json())
+        this.expressApp.use(bodyParser.urlencoded({ extended: false }))
         this.expressApp.use(compression())
 
         // Add Routers
