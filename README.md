@@ -43,19 +43,22 @@ ng build
 > Update the `.env` file  
 > Remove the `!.env` entry from the `.gitignore` before pushing your own config.
 ```bash
-# The host IP
+# Server local ip address
 HOST = 127.0.0.1
 
-# The port
+# Server local port
 PORT = 3000
 
-# The MongoDB connection string
+# Domain name without the protocol
+DOMAIN = mydomainname.com
+
+# Full mongo database connection string
 DATABASE = mongodb://localhost:27017/ts-node-web-server
 
-# The duration of a user session
+# Total Seconds before a session expire
 SESSION_EXPIRATION = 3600
 
-# The private JWT key use to sign session tokens
+# Secret key to sign session tokens
 JWT_KEY = change_me
 ```
 
