@@ -2,11 +2,11 @@ import HTTP from 'http'
 import Express from 'express'
 import IO from 'socket.io'
 import Database from '@Database/Database'
+import { AppLogger } from '@App/Logger'
 
 // Routers
 import StaticRouter from '@Routers/StaticRouter'
 import WebRouter from '@Routers/WebRouter'
-import { AppLogger } from './Logger'
 
 // Middlewares
 const cors = require('cors')
