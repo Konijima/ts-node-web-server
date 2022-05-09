@@ -16,7 +16,7 @@ import StaticRouter from '@App/Routers/StaticRouter'
 import WebRouter from '@App/Routers/WebRouter'
 
 // Sockets
-import { SocketSession } from './SocketSession'
+import { SocketSession } from '@App/SocketSession'
 
 class Application {
 
