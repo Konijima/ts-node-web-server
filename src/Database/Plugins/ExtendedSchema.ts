@@ -5,7 +5,7 @@ import { Schema, Document } from 'mongoose'
  * `wasNew` & `wasModified` access into post `save` hook.  
  * Also add `OnCreated`, `OnUpdated` & `OnDeleted` event to any schema.
  */
-export function ExtendedSchemaPlugin(schema: Schema, options: any) {
+function ExtendedSchemaPlugin(schema: Schema, options: any) {
 
     schema.virtual('wasNew')
         .get(function() { return this._wasNew })
@@ -32,7 +32,7 @@ export function ExtendedSchemaPlugin(schema: Schema, options: any) {
 
 }
 
-export interface ExtendedDocument extends Document {
+interface ExtendedDocument extends Document {
     /**
      * Check if the document is new in post save hook
      */
@@ -43,3 +43,5 @@ export interface ExtendedDocument extends Document {
      */
     wasModified: boolean
 }
+
+export { ExtendedSchemaPlugin, ExtendedDocument }
