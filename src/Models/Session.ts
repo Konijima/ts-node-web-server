@@ -97,7 +97,7 @@ SessionSchema.method('checkValidity', async function (this: ISessionDocument) {
         throw new Error('session_expired')
     }
 
-    if (!verify(this.token, process.env.SESSION_EXPIRATION)) {
+    if (!verify(this.token, process.env.JWT_KEY)) {
         await this.delete()
         throw new Error('invalid_token')
     }
