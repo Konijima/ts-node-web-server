@@ -1,7 +1,7 @@
 {
   "name": "ts-node-web-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Express, Socket-IO, MongoDB & Angular2 boilerplate written in Typescript.",
   "scripts": {
     "start": "node -r module-alias/register ./dist/index.js",
     "build": "tsc",
