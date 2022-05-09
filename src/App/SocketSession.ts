@@ -1,5 +1,5 @@
 import { Socket } from "socket.io"
-import { AppLogger } from "./Logger"
+import { AppLogger } from "@App/Logger"
 
 class SocketSession {
 
