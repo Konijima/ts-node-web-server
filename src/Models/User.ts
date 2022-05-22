@@ -122,6 +122,13 @@ UserSchema.pre('save', async function (next) {
 
 // EVENTS
 
+UserSchema.on('OnDeleted', async function (user: IUserDocument) {
+    const sessions = await Session.find({ userId: user._id })
+    for (let i = 0; i < sessions.length; i++) {
+        await sessions[i].delete()
+    }
+})
+
 // METHODS
 
 UserSchema.method('comparePassword', async function (this: IUserDocument, rawPassword: string) {

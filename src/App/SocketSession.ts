@@ -45,8 +45,8 @@ class SocketSession {
     protected socket: Socket
 
     constructor(socket: Socket) {
-        SocketSession.socketSessions[this.socket.id] = this
         this.socket = socket
+        SocketSession.socketSessions[this.socket.id] = this
 
         AppLogger.log(`${this.socket.id} has connected!`)
         this.handleConnection()
